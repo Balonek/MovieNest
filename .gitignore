@@ -1,4 +1,10 @@
 .env
-/app/generated/prisma
-/node_modules
+node_modules/
+backend/prisma/dev.db
+__pycache__/
+*.pyc
+*.pyo
+ml-service/venv/
+ml-service/*.pkl
 python/data/*.pkl
+/app/generated/prisma
