@@ -36,7 +36,6 @@ Example `.env` content:
 ```env
 DATABASE_URL="file:./prisma/dev.db"
 PORT=5000
-JWT_SECRET=your_secret_here
 ```
 
 ### 4. Python Environment Setup
@@ -155,11 +154,28 @@ MovieNest/
 | GET | `/api/recommendations/popular` | No | Top movies globally |
 | GET | `/api/recommendations/personalized` | Yes | Personalized recommendations |
 | GET | `/api/recommendations/random` | No | Random movie picker |
+| GET | `/api/recommendations/genre` | No | Movies by genre |
+| GET | `/api/recommendations/movie/:id` | No | Similar movies by ID |
 | GET | `/api/favorites` | Yes | User's tracked movies |
 | POST | `/api/favorites` | Yes | Add/update tracked movie status & score |
+| PATCH | `/api/favorites/:movieId` | Yes | Update tracked movie status & score |
+| GET | `/api/favorites/:movieId/check`| Yes | Check if movie is favorited |
 | DELETE | `/api/favorites/:movieId` | Yes | Remove movie from list |
 | POST | `/api/users/register` | No | Create an account |
 | POST | `/api/users/login` | No | Sign in |
+| GET | `/api/users/me` | Yes | Get current user profile |
+| PUT | `/api/users/update` | Yes | Update user profile |
+| PUT | `/api/users/change-password` | Yes | Change user password |
+
+---
+
+## Postman Testing
+
+You can use Postman to test the API endpoints. Screenshots demonstrating how to test a few example endpoints are available in the `docs/` directory of the project:
+- `docs/postman_register_success_201.png.png`
+- `docs/postman_login_success_200.png.png`
+- `docs/postman_get_movies_genre_comedy_limit_2.png.png`
+- `docs/postman_get_recommendations_limit_2.png.png`
 
 ---
 

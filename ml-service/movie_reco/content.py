@@ -117,8 +117,8 @@ def prepare_tmdb_metadata(
 @dataclass
 class OverviewTfidfRecommender:
     df: pd.DataFrame
-    title_col = "title"
-    text_col = "overview"
+    title_col: str = "title"
+    text_col: str = "overview"
 
     def __post_init__(self):
         self.df = self.df.copy()
@@ -147,8 +147,8 @@ class OverviewTfidfRecommender:
 @dataclass
 class MetadataSoupRecommender:
     df: pd.DataFrame
-    title_col = "original_title"
-    soup_col = "soup"
+    title_col: str = "original_title"
+    soup_col: str = "soup"
 
     def __post_init__(self):
         self.df = self.df.copy()

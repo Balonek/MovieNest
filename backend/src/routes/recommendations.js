@@ -41,15 +41,12 @@ router.get('/popular', async (req, res, next) => {
         if (isStale) {
             const fetchAndUpdate = async () => {
                 try {
-                    console.log("Fetching new popular recommendations from Python...");
                     const data = await runPythonScript(['--mode', 'popular', '--top-n', '100', '--data-dir', 'ml-service/data']);
                     if (data.ok && data.items) {
-                        console.log("Python returned items. First item:", data.items[0]);
                         const tmdbIds = data.items.slice(0, 50).map(i => {
                             const val = i.id || i.movieId || i.movie_id;
                             return val ? parseInt(val) : null;
                         }).filter(Boolean);
-                        console.log("Extracted IDs to search in DB:", tmdbIds);
                         const movies = await prisma.movie.findMany({
                             where: { id: { in: tmdbIds }, posterUrl: { not: null } }
                         });
@@ -110,7 +107,6 @@ router.get('/personalized', authenticateToken, async (req, res, next) => {
             if (isStale) {
                 const fetchAndUpdate = async () => {
                     try {
-                        console.log(`Fetching new personalized SVD for user ${userId}...`);
                         const data = await runPythonScript(['--mode', 'svd', '--user-id', userId, '--k', limit * 2, '--data-dir', 'ml-service/data']);
 
                         if (data.ok && data.items) {
