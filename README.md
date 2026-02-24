@@ -171,12 +171,35 @@ MovieNest/
 
 ## Postman Testing
 
-You can use Postman to test the API endpoints. Screenshots demonstrating how to test a few example endpoints are available in the `docs/` directory of the project:
-- `docs/postman_register_success_201.png.png`
-- `docs/postman_login_success_200.png.png`
-- `docs/postman_get_movies_genre_comedy_limit_2.png.png`
-- `docs/postman_get_recommendations_limit_2.png.png`
+You can use Postman to test the API endpoints. Click below to view example screenshots.
 
+<details>
+<summary>Register Success (201)</summary>
+
+![Register Success](./docs/postman_register_success_201.png)
+
+</details>
+
+<details>
+<summary>Login Success (200)</summary>
+
+![Login Success](./docs/postman_login_success_200.png)
+
+</details>
+
+<details>
+<summary>Get Movies by Genre</summary>
+
+![Get Movies](./docs/postman_get_movies_genre_comedy_limit_2.png)
+
+</details>
+
+<details>
+<summary>Get Popular Recommendations</summary>
+
+![Recommendations](./docs/postman_get_recommendations_limit_2.png)
+
+</details>
 ---
 
 ## ML Recommendation Engine
